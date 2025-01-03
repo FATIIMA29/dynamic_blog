@@ -3,7 +3,7 @@
 import React from 'react';
 import CommentSection from '@/components/commentsSection';
 import AuthorCard from '@/components/authorcard';
-
+import Image from 'next/image';
 const posts = [
   {
     id: '1',
@@ -68,7 +68,7 @@ export default function Post({ params }: { params: { id: string } }) {
         {post.title}
       </h1>
       {post.image && (
-        <img
+        <Image
           src={post.image}
           alt={`Image for ${post.title}`}
           className="w-full h-auto rounded-md mt-4"
