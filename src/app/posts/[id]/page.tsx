@@ -4,6 +4,7 @@ import React from 'react';
 import CommentSection from '@/components/commentsSection';
 import AuthorCard from '@/components/authorcard';
 import Image from 'next/image';
+
 const posts = [
   {
     id: '1',
@@ -49,9 +50,7 @@ export default function Post({ params }: { params: { id: string } }) {
   const post = posts.find((p) => p.id === id);
 
   if (!post) {
-    return (
-      <h2 className="text-2xl font-bold text-center mt-10">Post Not Found</h2>
-    );
+    return <h2 className="text-2xl font-bold text-center mt-10">Post Not Found</h2>;
   }
 
   const renderParagraphs = (description: string) => {
@@ -72,6 +71,8 @@ export default function Post({ params }: { params: { id: string } }) {
           src={post.image}
           alt={`Image for ${post.title}`}
           className="w-full h-auto rounded-md mt-4"
+          width={800}  // Recommended for Next.js Image component
+          height={400}
         />
       )}
       <div className="mt-6 text-xl text-slate-700">
